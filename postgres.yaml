@@ -5,7 +5,7 @@ metadata:
   namespace: dev
 type: Opaque
 stringData:
-  POSTGRES_PASSWORD: devpassword
+  POSTGRES_PASSWORD: replace-with-cluster-secret
 ---
 apiVersion: v1
 kind: Service
@@ -53,7 +53,7 @@ spec:
       containers:
         - name: postgres
           image: postgres:14-alpine
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 5432
               name: postgres

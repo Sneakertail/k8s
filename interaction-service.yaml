@@ -16,7 +16,7 @@ metadata:
   namespace: dev
 type: Opaque
 stringData:
-  DB_PASSWORD: "devpassword"
+  DB_PASSWORD: "replace-with-cluster-secret"
 ---
 apiVersion: v1
 kind: Service
@@ -69,8 +69,8 @@ spec:
     spec:
       containers:
         - name: interaction-service
-          image: sneakertail/interaction-service:latest
-          imagePullPolicy: IfNotPresent
+          image: ghcr.io/sneakertail/interaction-service:dev
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 3004
