@@ -37,39 +37,16 @@ spec:
 
 ---
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: auth-service-preview
-  namespace: k8s
-spec:
-  selector:
-    app: auth-service
-  ports:
-    - name: http
-      port: 3001
-      targetPort: 3001
-
----
-
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: auth-service
   namespace: k8s
 spec:
   replicas: 1
-  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: auth-service
-  strategy:
-    blueGreen:
-      activeService: auth-service-active
-      previewService: auth-service-preview
-      autoPromotionEnabled: false
-      previewReplicaCount: 1
-      scaleDownDelaySeconds: 30
   template:
     metadata:
       labels:
