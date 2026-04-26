@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: redis
-  namespace: dev
+  namespace: k8s
 spec:
   selector:
     app: redis
@@ -15,7 +15,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: redis-headless
-  namespace: dev
+  namespace: k8s
 spec:
   clusterIP: None
   selector:
@@ -29,7 +29,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: redis
-  namespace: dev
+  namespace: k8s
 spec:
   serviceName: redis-headless
   replicas: 1

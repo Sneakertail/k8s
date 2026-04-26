@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: payment-service-config
-  namespace: dev
+  namespace: k8s
 data:
   PORT: "3005"
 ---
@@ -10,7 +10,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: payment-service-active
-  namespace: dev
+  namespace: k8s
 spec:
   selector:
     app: payment-service
@@ -23,7 +23,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: payment-service-preview
-  namespace: dev
+  namespace: k8s
 spec:
   selector:
     app: payment-service
@@ -36,7 +36,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: payment-service
-  namespace: dev
+  namespace: k8s
 spec:
   replicas: 2
   revisionHistoryLimit: 2
