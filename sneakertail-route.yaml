@@ -16,6 +16,7 @@ spec:
         value: /api/auth
     backendRefs:
     - name: auth-service-active
+      namespace: dev
       port: 3001
   - matches:
     - path:
@@ -23,6 +24,7 @@ spec:
         value: /api/products
     backendRefs:
     - name: product-service-active
+      namespace: dev
       port: 3002
   - matches:
     - path:
@@ -30,6 +32,7 @@ spec:
         value: /api/raffle
     backendRefs:
     - name: raffle-service-active
+      namespace: dev
       port: 3003
   - matches:
     - path:
@@ -37,6 +40,7 @@ spec:
         value: /api/payment
     backendRefs:
     - name: payment-service-active
+      namespace: dev
       port: 3005
   - matches:
     - path:
@@ -44,6 +48,7 @@ spec:
         value: /api/cart
     backendRefs:
     - name: interaction-service-active
+      namespace: dev
       port: 3004
   - matches:
     - path:
@@ -51,6 +56,7 @@ spec:
         value: /api/wishlist
     backendRefs:
     - name: interaction-service-active
+      namespace: dev
       port: 3004
   - matches:
     - path:
@@ -58,4 +64,5 @@ spec:
         value: /
     backendRefs:
     - name: frontend-active
+      namespace: dev
       port: 80
